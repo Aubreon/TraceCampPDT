@@ -1,0 +1,27 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <h1>Tires</h1>
+  <link rel="stylesheet" href="{% static 'css/tire_list.css' %}" />
+  <form action="{% url 'tire_list' %}" method="get">
+    <label>Width</label>
+    <input name="width" type="number" placeholder="Width..." />
+    <label>Sidewall</label>
+    <input name="sidewall" type="number" placeholder="Sidewall..." />
+    <label>Rim</label>
+    <input name="rim" type="number" placeholder="Rim..." />
+    <input value="submit" type="submit" />
+  </form>
+  <ul>
+    {% for tire in object_list %}
+    <a href="update/{{ tire.id }}">
+      <li>{{ tire.width }} - {{ tire.sidewall }} - {{ tire.rim }}</li>
+    </a>
+    <div class="DeleteButton">
+      <a href="delete/{{ tire.id }}">Delete</a>
+    </div>
+    {% empty %}
+    <li>No tires yet.</li>
+    {% endfor %}
+  </ul>
+</html>
