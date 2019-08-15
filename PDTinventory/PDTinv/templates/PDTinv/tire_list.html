@@ -1,8 +1,6 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html>
+{% extends 'base.html'%}
+{% block content%}
   <h1>Tires</h1>
-  <link rel="stylesheet" href="{% static 'css/tire_list.css' %}" />
   <form action="{% url 'tire_list' %}" method="get">
     <label>Width</label>
     <input name="width" type="number" placeholder="Width..." />
@@ -12,16 +10,26 @@
     <input name="rim" type="number" placeholder="Rim..." />
     <input value="submit" type="submit" />
   </form>
-  <ul>
-    {% for tire in object_list %}
-    <a href="update/{{ tire.id }}">
-      <li>{{ tire.width }} - {{ tire.sidewall }} - {{ tire.rim }}</li>
-    </a>
-    <div class="DeleteButton">
-      <a href="delete/{{ tire.id }}">Delete</a>
-    </div>
-    {% empty %}
-    <li>No tires yet.</li>
-    {% endfor %}
-  </ul>
-</html>
+  <div class="card">
+      <ul class="list-group list-group-flush">
+          {% for tire in object_list %}
+          
+          <a href="update/{{ tire.id }}">
+            <div  class="list-group-item">
+              <div class="row">
+                  <div class="col-sm">{{ tire.width }} - {{ tire.sidewall }} - {{ tire.rim }}  </div>
+                  <div class="col-sm"><a href="delete/{{ tire.id }}" class="btn btn-danger btn-sm">Delete</a></div>
+              </div>
+              
+            </div>
+          </a>
+          
+           
+         
+          {% empty %}
+          <li>No tires yet.</li>
+          {% endfor %}
+        </ul>
+  </div>
+  
+{% endblock %}

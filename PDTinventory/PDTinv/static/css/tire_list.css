@@ -1,18 +1,11 @@
-h1{
-	color: solid black;
-	text-align: center;
-	background-color: red;
-	border:10px solid black;
+html,body{
+    height:100%;
 }
 
-li{
-	text-align: center;
+#page-content{
+    flex: 1 0 auto;
 }
 
-.DeleteButton{
-	text-align: center;
-}
-
-form{
-	text-align: center;
+#sticky-footer{
+    flex-shrink: none;
 }
