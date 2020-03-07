@@ -39,31 +39,6 @@ class TireList(ListView):
         print(object_list)
         return object_list
 
-        # if w == s == r == None:
-        #     return Tire.objects.all()
-        # elif w == s == None:
-        #     print("r")
-        #     return Tire.objects.filter(rim=r)
-        # elif s == r == None:
-        #     print("w")
-        #     return Tire.objects.filter(width=w)
-        # elif w == r == "":
-        #     print("s")
-        #     return Tire.objects.filter(sidewall=s)
-        # elif w == "":
-        #     print("s r")
-        #     return Tire.objects.filter(rim=r).filter(rim=r)
-        # elif r == "":
-        #     print("w s")
-        #     return Tire.objects.filter(width=w).filter(sidewall=s)
-        # elif s == "":
-        #     print("w r")
-        #     return Tire.objects.filter(width=w).filter(rim=r)
-        # else:
-        #     print("w s r")
-        #     return Tire.objects.filter(width=w).filter(rim=r).filter(sidewall=s)
-
-
 class TireUpdate(UpdateView):
     model = Tire
     fields = ['width', 'sidewall', 'rim']
